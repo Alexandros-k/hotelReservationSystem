@@ -1,28 +1,19 @@
 package model;
 
 import java.util.Date;
+import java.util.Objects;
 
 public class Reservation {
-    private int id;
     private Customer customer;
     private IRoom room;
     private Date checkinDate;
     private Date checkoutDate;
 
-    public Reservation(int id, Customer customer, IRoom room, Date checkinDate, Date checkoutDate) {
-        this.id = id;
+    public Reservation(Customer customer, IRoom room, Date checkinDate, Date checkoutDate) {
         this.customer = customer;
         this.room = room;
         this.checkinDate = checkinDate;
         this.checkoutDate = checkoutDate;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Customer getCustomer() {
@@ -58,9 +49,24 @@ public class Reservation {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Reservation)) return false;
+        Reservation that = (Reservation) o;
+        return Objects.equals(customer, that.customer) &&
+                Objects.equals(room, that.room) &&
+                Objects.equals(checkinDate, that.checkinDate) &&
+                Objects.equals(checkoutDate, that.checkoutDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(customer, room, checkinDate, checkoutDate);
+    }
+
+    @Override
     public String toString() {
         return "Reservation{" +
-                "id=" + id +
                 ", customer=" + customer +
                 ", room=" + room +
                 ", checkinDate=" + checkinDate +

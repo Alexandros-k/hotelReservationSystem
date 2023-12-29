@@ -2,24 +2,24 @@ package model;
 
 public class Room implements IRoom  {
 
-    private int id;
+    private static int roomId;
     private String roomNumber;
     private Double price;
     private RoomType roomType;
 
-    public Room(int id, String roomNumber, Double price, RoomType roomType) {
-        this.id = id;
+    public Room(String roomNumber, Double price, RoomType roomType) {
+        this.roomId =+1;
         this.roomNumber = roomNumber;
         this.price = price;
         this.roomType = roomType;
     }
 
-    public int getId() {
-        return id;
+    public static int getRoomId() {
+        return roomId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public static void setRoomId(int roomId) {
+        Room.roomId = roomId;
     }
 
     public void setRoomNumber(String roomNumber) {
@@ -40,17 +40,17 @@ public class Room implements IRoom  {
 
     @Override
     public String getRoomNumber() {
-        return null;
+        return roomNumber;
     }
 
     @Override
-    public String getRoomPrice() {
-        return null;
+    public Double getRoomPrice() {
+        return price;
     }
 
     @Override
-    public String getRoomType() {
-        return null;
+    public RoomType getRoomType() {
+        return roomType;
     }
 
     @Override
@@ -61,15 +61,10 @@ public class Room implements IRoom  {
     @Override
     public String toString() {
         return "Room{" +
-                "id=" + id +
+                "roomId='" + roomId + '\'' +
                 ", roomNumber='" + roomNumber + '\'' +
                 ", price=" + price +
                 ", roomType=" + roomType +
                 '}';
-    }
-
-    enum RoomType {
-        SINGLE,
-        DOUBLE
     }
 }

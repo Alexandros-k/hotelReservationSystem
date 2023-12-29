@@ -8,6 +8,7 @@ public class AdminMenu {
         System.out.println("3. See all Reservations");
         System.out.println("4. Add a Room");
         System.out.println("5. Back to Main Menu");
+        System.out.println("6. populate app with dummy data");
     }
 
 

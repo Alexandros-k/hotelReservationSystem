@@ -4,8 +4,8 @@ public class FreeRoom extends Room{
 
     private Double price;
 
-    public FreeRoom(int id, String roomNumber, Double price, RoomType roomType){
-        super(id, roomNumber, price, roomType);
+    public FreeRoom(String roomNumber, Double price, RoomType roomType){
+        super(roomNumber, price, roomType);
         this.price = 0.0;
     }
 }
